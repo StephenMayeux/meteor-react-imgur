@@ -14,6 +14,9 @@ class App extends Component {
   }
 
   // calls this method immediately before render() - will only be called once
+  /*
+  Invoked once, both on the client and server, immediately before the initial rendering occurs. If you call setState within this method, render() will see the updated state and will be executed only once despite the state change.
+  */
   componentWillMount() {
     axios.get('https://api.imgur.com/3/gallery/hot/viral/0')
       .then(response => this.setState({ images: response.data.data }));
